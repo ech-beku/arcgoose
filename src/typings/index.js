@@ -59,8 +59,16 @@ const jdocForField = (includeDocs, field, title) => {
 };
 
 
-const fieldToInterfaceContent = (field, { includeDocs, useAlias }) => `${jdocForField(includeDocs, field)}
-            '${useAlias ? field.alias : field.name}': ${arcgisTsFieldMap[field.type]}`;
+const fieldToInterfaceContent = (field, { includeDocs, useAlias }) => {
+  let code = jdocForField(includeDocs, field);
+  if (field.domain) {
+    // return 'dif';
+  } else {
+    code += `'${useAlias ? field.alias : field.name}': ${arcgisTsFieldMap[field.type]}`;
+  }
+
+  return code;
+};
 
 const fieldToSchemaContent = (field, { includeDocs, useAlias }) => `${jdocForField(includeDocs, field)}
         '${field.name}': {

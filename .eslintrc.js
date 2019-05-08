@@ -8,6 +8,7 @@ module.exports = {
       "no-return-assign": 0,
       "react/no-array-index-key": 0,
       "jsx-a11y/no-autofocus": 0,
+      "linebreak-style": 0
     },
     "env": {
       "browser": true,
